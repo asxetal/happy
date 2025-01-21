@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #ff5c62, #ffa48b, #ff79d9, #8c6bda);
+  animation: gradient-animation 6s ease infinite;
+  background-size: 400% 400%;
+}
+.box{
+  width: 150px;
+  height: 150px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 4px;
+  position: relative;
+  border-bottom: 2px solid rgba(255,255,255,.5);
+  border-right: 2px solid rgba(255,255,255,.5);
+  border-left: 2px solid rgba(255,255,255,.5);
+
+}
+.box::before{
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  background-color: yellow;
+  top: 0;
+  right: 47%;
+}
+.top-box{
+  position: absolute;
+  width: 160px;
+  height: 20px;
+  background-color: rgb(21, 255, 0);
+  left: -5px;
+  border: 2px solid rgba(255,255,255,.2);
+  border-radius: 3px;
+  transition: transform .5s ease;
+}
+#check-box:checked ~ .box .top-box {
+  transform: rotate(45deg) translate(-20px, -10vh);
+}
+.text{
+  width: 250px;
+  height: 150px;
+  position: absolute;
+  background-color: aqua;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  top: 15vw;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s 300ms ease;
+}
+#check-box:checked ~ .text{
+  opacity: 1;
+  visibility: visible;
+}
+@keyframes gradient-animation{
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+}
